@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Search Anagram</title>
+</head>
+<body>
+<!-- I need u to search a list of names and find names that are an anagram of the name  -->
+<script type="text/javascript" defer>
+window.onload = () => {
+nameList= ['Rasel Khan', 'Masum Billah', 'Lean Krash', 'Abu Sufian', 'Damon Albarn', 'Elvis', 'Hallib Sumam'];
+var list = document.getElementById('nameList');
+	nameList.forEach(function(item){
+	   console.log(item);
+	   var option = document.createElement('option');
+	   option.value = item;
+	   list.appendChild(option);
+	});
+}	
+
+function searchList(){
+	var search_name= document.getElementById('search_name').value;
+	var matchingNames="";
+	var anagramList=document.getElementById('anagramList');
+	anagramList.innerHTML="";
+	nameList.map(function(name){
+		checkAnagram(name, search_name)
+		
+	})
+
+}
+
+
+function checkAnagram(name, search_name) {
+	if (name.toLowerCase().split('').sort().join('') === search_name.toLowerCase().split('').sort().join('')) {
+	 	var node = document.createElement("li");
+	 	var textnode = document.createTextNode(name);
+	 	node.appendChild(textnode);
+	 	anagramList.appendChild(node);
+
+	}
+}
+</script>
+
+<div style="">
+<form action="#">
+  <label for="search_name"><strong>Search Anagram Name:</strong></label><br>
+  <input type="text" id="search_name" name="search_name" list="nameList" onkeyup ="searchList()" >
+  <datalist id="nameList">
+  </datalist>
+  <!-- <input type="submit" value="Submit"> -->
+</form>
+
+<h2>List Of Anagram Names</h2>
+
+<ul id="anagramList" >
+</ul>
+
+</div>
+
+<style type="text/css">
+div {
+	width: 60%; 
+	border: 2px solid black;
+	outline: #522dbf solid 10px;
+	margin: auto;  
+	margin-top: 30px;  
+	padding: 20px;
+	text-align: center;
+}	
+
+ul {
+	width: 40%;
+    text-align: center;
+    margin: auto;
+}
+ul li{
+	text-align: left;
+	margin-left: 10%
+}
+</style>
+
+</body>
+</html>
+
+
