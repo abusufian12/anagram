@@ -4,10 +4,11 @@
 <title>Search Anagram</title>
 </head>
 <body>
-<!-- I need u to search a list of names and find names that are an anagram of the name  -->
 <script type="text/javascript" defer>
 window.onload = () => {
-nameList= ['Rasel Khan', 'Masum Billah', 'Lean Krash', 'Abu Sufian', 'Damon Albarn', 'Elvis', 'Hallib Sumam'];
+nameList= ['Rasel Khan', 'Lean Krash', 'School master',  'The classroom', 'Damon Albarn', 'Elvis','The eyes', 'They see', 'Funeral', 'Real fun'];
+
+// autocomplete
 var list = document.getElementById('nameList');
 	nameList.forEach(function(item){
 	   console.log(item);
@@ -24,9 +25,7 @@ function searchList(){
 	anagramList.innerHTML="";
 	nameList.map(function(name){
 		checkAnagram(name, search_name)
-		
 	})
-
 }
 
 
@@ -44,7 +43,7 @@ function checkAnagram(name, search_name) {
 <div>
 	<form action="#">
 	  <label for="search_name"><strong>Search Anagram Name:</strong></label><br>
-	  <input type="text" id="search_name" name="search_name" list="nameList" onkeyup ="searchList()" >
+	  <input type="text" id="search_name" name="search_name" list="nameList" onkeyup ="searchList()">
 	  <datalist id="nameList">
 	  </datalist>
 	  <!-- <input type="submit" value="Submit"> -->
